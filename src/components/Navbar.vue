@@ -1,7 +1,7 @@
 <template>
     <nav>
 
-        <v-navigation-drawer v-model="drawer" class="info" app dark>
+        <v-navigation-drawer v-model="drawer" class="pink darken-1" app dark>
             <v-btn icon @click="drawer = !drawer">
                 <v-icon>mdi-arrow-left</v-icon>
             </v-btn>
