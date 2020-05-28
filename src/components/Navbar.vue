@@ -40,7 +40,7 @@
             </v-list>
         </v-navigation-drawer>
 
-        <v-app-bar flat app>
+        <v-app-bar flat app class="transparent">
             <v-app-bar-nav-icon class="grey--text" @click="drawer = !drawer"></v-app-bar-nav-icon>
             <v-toolbar-title class="text-uppercase grey--text">
                 <span class="font-weight-light">Todo</span>
