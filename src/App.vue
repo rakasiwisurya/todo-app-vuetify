@@ -1,5 +1,5 @@
 <template>
-  <v-app class="grey lighten-4">
+  <v-app class="grey-color">
 
     <Navbar />
 
@@ -24,3 +24,9 @@ export default {
   })
 };
 </script>
+
+<style scoped>
+.grey-color{
+  background: #F5F5F5 !important;
+}
+</style>
