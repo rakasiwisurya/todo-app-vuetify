@@ -3,8 +3,19 @@
     <h1 class="subtitle-1 grey--text">Dashboard</h1>
 
     <v-container class="my-5">
+
+      <v-layout row class="mb-3">
+        <v-btn small text color="grey" @click="sortBy('title')">
+          <v-icon left small>folder</v-icon>
+          <span class="caption text-lowercase">By project name</span>
+        </v-btn>
+        <v-btn small text color="grey" @click="sortBy('person')">
+          <v-icon left small>person</v-icon>
+          <span class="caption text-lowercase">By person name</span>
+        </v-btn>
+      </v-layout>
       
-      <v-card flat class="px-3 mx-5" v-for="project in projects" :key="project.title">
+      <v-card flat class="px-3" v-for="project in projects" :key="project.title">
         <v-layout row wrap :class="`pa-3 project ${project.status}`">
           <v-flex xs12 md6>
             <div class="caption grey--text">Project Title</div>
@@ -49,6 +60,11 @@ export default {
         {title: 'Design mockup website', person: 'Robi Habibulloh', due: '1st Jun 2020', status: 'complete', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae facere, magnam consectetur est molestiae in unde, veniam exercitationem aperiam natus quia blanditiis id saepe. Optio impedit enim veniam deserunt? Et?'},
       ],
       inactive: false,
+    }
+  },
+  methods: {
+    sortBy(prop){
+      this.projects.sort((a,b) => a[prop] < b[prop] ? -1 : 1)
     }
   },
 };
