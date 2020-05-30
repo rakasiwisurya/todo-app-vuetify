@@ -5,14 +5,25 @@
     <v-container class="my-5">
 
       <v-layout row class="mb-3">
-        <v-btn small text color="grey" @click="sortBy('title')">
-          <v-icon left small>folder</v-icon>
-          <span class="caption text-lowercase">By project name</span>
-        </v-btn>
-        <v-btn small text color="grey" @click="sortBy('person')">
-          <v-icon left small>person</v-icon>
-          <span class="caption text-lowercase">By person name</span>
-        </v-btn>
+        <v-tooltip top>
+          <template v-slot:activator="{ on }">
+            <v-btn small text color="grey" @click="sortBy('title')" v-on="on">
+              <v-icon left small>folder</v-icon>
+              <span class="caption text-lowercase">By project name</span>
+            </v-btn>
+          </template>
+          <span>Sort project by project name</span>
+        </v-tooltip>
+
+        <v-tooltip top>
+          <template v-slot:activator="{ on }">
+            <v-btn small text color="grey" @click="sortBy('person')" v-on="on">
+              <v-icon left small>person</v-icon>
+              <span class="caption text-lowercase">By person name</span>
+            </v-btn>
+          </template>
+          <span>Sort project by person name</span>
+        </v-tooltip>
       </v-layout>
       
       <v-card flat class="px-3" v-for="project in projects" :key="project.title">
