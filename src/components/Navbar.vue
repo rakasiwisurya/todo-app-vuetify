@@ -1,7 +1,6 @@
 <template>
     <nav>
-
-        <v-navigation-drawer v-model="drawer" class="pink darken-1" app dark>
+        <v-navigation-drawer v-model="drawer" class="primary" app dark>
             <v-btn icon @click="drawer = !drawer">
                 <v-icon>mdi-arrow-left</v-icon>
             </v-btn>
@@ -14,9 +13,12 @@
                     <div class="white--text subtitle-1 font-weight-bold mt-3">
                         Rakasiwi Surya
                     </div>
-                    <div class="white--text subtitle-1 mb-4">
+                    <div class="white--text subtitle-1">
                         rakasiwisurya@vuetify.com
                     </div>
+                </v-flex>
+                <v-flex class="mt-4 mb-3">
+                    <Popup />
                 </v-flex>
             </v-layout>
 
@@ -70,7 +72,12 @@
 </template>
 
 <script>
+import Popup from './Popup'
+
 export default {
+    components: {
+        Popup,
+    },
     data() {
         return {
             drawer: false,
