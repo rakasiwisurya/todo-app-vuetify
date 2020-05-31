@@ -6,24 +6,20 @@
                 <v-icon>mdi-arrow-left</v-icon>
             </v-btn>
             
-            <v-list>
-                <v-list-item class="justify-center">
-                    <v-list-item-avatar height="75px" width="75px">
-                        <v-img src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
-                    </v-list-item-avatar>
-                </v-list-item>
+            <v-layout column align-center>
+                <v-flex class="mt-5 text-center">
+                    <v-avatar size="100">
+                        <img src="/avatar-1.png">
+                    </v-avatar>
+                    <div class="white--text subtitle-1 font-weight-bold mt-3">
+                        Rakasiwi Surya
+                    </div>
+                    <div class="white--text subtitle-1 mb-4">
+                        rakasiwisurya@vuetify.com
+                    </div>
+                </v-flex>
+            </v-layout>
 
-                <v-list-item class="justify-center">
-                    <v-list-item-content>
-                        <v-list-item-title class="title">Rakasiwi Surya Apa</v-list-item-title>
-                        <v-list-item-subtitle>rakasiwisuryaapa@vuetifyjs.com</v-list-item-subtitle>
-                    </v-list-item-content>
-
-                    <v-list-item-action>
-                        <v-icon>mdi-menu-down</v-icon>
-                    </v-list-item-action>
-                </v-list-item>
-            </v-list>
             <v-divider></v-divider>
             <v-list flat dense>
                 <v-list-item-group>
@@ -40,7 +36,7 @@
             </v-list>
         </v-navigation-drawer>
 
-        <v-app-bar flat app class="transparent">
+        <v-app-bar flat app class="grey lighten-4">
             <v-app-bar-nav-icon class="grey--text" @click="drawer = !drawer"></v-app-bar-nav-icon>
             <v-toolbar-title class="text-uppercase grey--text">
                 <span class="font-weight-light">Todo</span>
