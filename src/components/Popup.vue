@@ -1,5 +1,5 @@
 <template>
-    <v-dialog max-width="600px" >
+    <v-dialog max-width="600px" v-model="dialog">
         <template v-slot:activator="{ on }">
             <v-btn text class="blue accent-2" v-on="on">Add New Project</v-btn>
         </template>
@@ -14,12 +14,12 @@
 
                     <v-menu :close-on-content-click="false" min-width="290px" v-model="menuDatePicker" transition="scale-transition">
                         <template v-slot:activator="{ on }">
-                            <v-text-field v-model="due" label="Due Date" prepend-icon="date_range" v-on="on"></v-text-field>
+                            <v-text-field v-model="due" label="Due Date" prepend-icon="date_range" v-on="on" :rules="inputRules"></v-text-field>
                         </template>
                         <v-date-picker v-model="due" @input="menuDatePicker = false"></v-date-picker>
                     </v-menu>
 
-                    <v-btn text class="blue white--text mx-0 mt-3" @click="submit" :loading="loading" :disabled="loading">Add Project</v-btn>
+                    <v-btn class="primary white--text mx-0 mt-3" @click="submit" :loading="loading" :disabled="loading">Add Project</v-btn>
                 </v-form>
             </v-card-text>
         </v-card>
@@ -40,6 +40,7 @@ export default {
                 v => v.length >=3 || 'Minimun length is 3 characters'
             ],
             loading: false,
+            dialog: false,
         }
     },
     methods: {
@@ -57,6 +58,11 @@ export default {
 
                 db.collection('projects').add(project).then(() => {
                     this.loading = false;
+                    this.dialog = false;
+                    this.title = '';
+                    this.content = '';
+                    this.due = '';
+                    alert('Data Anda Berhasil Ditambahkan ke Database!!');
                 })
             }
         }
