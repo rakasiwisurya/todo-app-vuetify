@@ -39,13 +39,13 @@ export default {
             inputRules: [
                 v => v.length >=3 || 'Minimun length is 3 characters'
             ],
-            loading: 'false',
+            loading: false,
         }
     },
     methods: {
         submit(){
             if (this.$refs.form.validate()){
-                this.loading = true
+                this.loading = true;
 
                 const project = {
                     title: this.title,
@@ -56,7 +56,7 @@ export default {
                 }
 
                 db.collection('projects').add(project).then(() => {
-                    this.loading = false
+                    this.loading = false;
                 })
             }
         }
