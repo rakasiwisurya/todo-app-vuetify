@@ -1,7 +1,7 @@
 <template>
     <v-dialog max-width="600px" v-model="dialog">
         <template v-slot:activator="{ on }">
-            <v-btn text class="blue accent-2" v-on="on">Add New Project</v-btn>
+            <v-btn text class="blue accent-1" v-on="on">Add New Project</v-btn>
         </template>
         <v-card>
             <v-card-title class="title font-weight-bold">
@@ -19,7 +19,7 @@
                         <v-date-picker v-model="due" @input="menuDatePicker = false"></v-date-picker>
                     </v-menu>
 
-                    <v-btn class="primary white--text mx-0 mt-3" @click="submit" :loading="loading" :disabled="loading">Add Project</v-btn>
+                    <v-btn depressed class="info white--text mx-0 mt-3" @click="submit" :loading="loading" :disabled="loading">Add Project</v-btn>
                 </v-form>
             </v-card-text>
         </v-card>
@@ -62,7 +62,7 @@ export default {
                     this.title = '';
                     this.content = '';
                     this.due = '';
-                    alert('Data Anda Berhasil Ditambahkan ke Database!!');
+                    this.$emit('projectAdded');
                 })
             }
         }
