@@ -19,7 +19,7 @@
                         <v-date-picker v-model="due" @input="menuDatePicker = false"></v-date-picker>
                     </v-menu>
 
-                    <v-btn text class="blue white--text mx-0 mt-3" @click="submit">Add Project</v-btn>
+                    <v-btn text class="blue white--text mx-0 mt-3" @click="submit" :loading="loading" :disabled="loading">Add Project</v-btn>
                 </v-form>
             </v-card-text>
         </v-card>
@@ -38,12 +38,15 @@ export default {
             menuDatePicker: '',
             inputRules: [
                 v => v.length >=3 || 'Minimun length is 3 characters'
-            ]
+            ],
+            loading: 'false',
         }
     },
     methods: {
         submit(){
             if (this.$refs.form.validate()){
+                this.loading = true
+
                 const project = {
                     title: this.title,
                     content: this.content,
@@ -51,9 +54,9 @@ export default {
                     person: 'Rakasiwi Surya',
                     status: 'ongoing'
                 }
-                
+
                 db.collection('projects').add(project).then(() => {
-                    console.log('db is added')
+                    this.loading = false
                 })
             }
         }
