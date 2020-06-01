@@ -17,7 +17,7 @@
                         rakasiwisurya@vuetify.com
                     </div>
                 </v-flex>
-                <v-flex class="mt-4 mb-3">
+                <v-flex class="mt-3 mb-4">
                     <Popup />
                 </v-flex>
             </v-layout>
