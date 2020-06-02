@@ -59,10 +59,9 @@ export default {
                 db.collection('projects').add(project).then(() => {
                     this.loading = false;
                     this.dialog = false;
-                    this.title = '';
-                    this.content = '';
-                    this.due = '';
+                    
                     this.$emit('projectAdded');
+                    this.$refs.form.reset();
                 })
             }
         }
